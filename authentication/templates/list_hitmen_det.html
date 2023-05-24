@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hitmen Managed</h1>
+    <table>
+        <thead>
+            <tr>
+                {% for key in profiles.0.keys %}
+                <th>{{ key }}</th>
+                {% endfor %}
+                <th>Edit</th> <!-- Agregar columna para el botón -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for profile in profiles %}
+            <tr>
+                {% for value in profile.values %}
+                <td>{{ value }}</td>
+                {% endfor %}
+    
+                <td>
+                    <form method="PUT" action="/auth/hitmen/{{ profile.user__id }}/">
+                        {% csrf_token %}
+                        <button type="submit">Edit</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
