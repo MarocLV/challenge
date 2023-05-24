@@ -27,7 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
+CORS_ALLOWED_ORIGINS = [
+    'https://challenge-production-eb53.up.railway.app',
+]
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,11 +40,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'corsheaders',
+
     'authentication',
     'assignments'
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
