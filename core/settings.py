@@ -27,6 +27,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://challenge-production-eb53.up.railway.app',
+]
+
 CORS_ALLOWED_ORIGINS = [
     'https://challenge-production-eb53.up.railway.app',
 ]
